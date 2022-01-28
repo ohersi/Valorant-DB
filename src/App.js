@@ -6,6 +6,7 @@ import Nav from './components';
 // Pages
 import Home from './pages/Home';
 import Agents from './pages/Agents';
+import Esports from './pages/Esports';
 // CSS
 import './App.css'
 
@@ -54,37 +55,12 @@ const App = () => {
   return (
     <>
       <div id='main'>
-        <button onClick={fetchMatches}>Test Match API</button>
-        <button onClick={fetchVal}>Test Valorant-API</button>
-
-        <div id="match-container">
-          {
-            matchData.map((matches) => (
-              <div>
-                <img src={matches.league.image_url} alt="" style={{ width: '10rem' }} />
-                <h3>{matches.league.name}</h3>
-                <h4 style={{ color: 'red' }}>{matches.name}</h4>
-                <a href={matches.official_stream_url}>Watch on Twitch</a>
-              </div>
-            ))
-          }
-        </div>
-
-        <div id="val-container">
-          {
-            valData.map(item => (
-              <div key={item.displayName}>
-                <h2>{item.isPlayableCharacter == true ?
-                  item.displayName : null}</h2>
-                <img id='val-portrait' src={item.isPlayableCharacter == true ? item.displayIcon : null} alt="" />
-                <h3>{item.isPlayableCharacter == true ? item.role?.displayName : null}</h3>
-              </div>
-            ))
-          }
-        </div>
-
-
-
+        < Nav />
+        <Routes>
+          <Route path='/' element={<Home />} /> 
+          <Route path='agents' element={<Agents valData={valData} fetchVal={fetchVal}/>} /> 
+          <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches}/>} /> 
+        </Routes>
       </div>
     </>
   );
