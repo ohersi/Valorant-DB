@@ -38,7 +38,14 @@ const App = () => {
   const fetchVal = async () => {
     try {
       const response = await axios.get('https://valorant-api.com/v1/agents')
-      setValData(response.data.data)
+      //removing duplicate Sova object
+      let array = response.data.data
+      let newArr = ''
+      array.map(() => {
+        newArr = array.filter(item => item.uuid !== 'ded3520f-4264-bfed-162d-b080e2abccf9' )
+      })
+       console.log('should be 18', newArr)
+      setValData(newArr)
 
     }
     catch (error) {
@@ -46,16 +53,12 @@ const App = () => {
     }
   }
 
-  console.log(valData)
-
-  // useEffect(() => {
-  //   fetchMatches()
-  // }, []);
+  // console.log(valData)
 
   return (
     <>
       <div id='main'>
-        < Nav />
+        <Nav />
         <Routes>
           <Route path='/' element={<Home />} /> 
           <Route path='agents' element={<Agents valData={valData} fetchVal={fetchVal}/>} /> 
