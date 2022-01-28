@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import {Routes, Route } from 'react-router-dom'
 import axios from 'axios';
+// Components
+import Nav from './components';
+// Pages
+import Home from './pages/Home';
+import Agents from './pages/Agents';
+// CSS
 import './App.css'
 
-console.log(process.env.REACT_APP_PANDASCORE_API_KEY)
 const App = () => {
 
   const [matchData, setMatchData] = useState([])
