@@ -1,17 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Agents = ({ agentData, fetchVal }) => {
+
+    const [agentSelect, setAgentSelect]= useState({
+        activeObject: null
+    })
+    console.log(agentSelect)
 
     useEffect(() => {
         fetchVal();
     }, []);
 
+    const toggleActive = (index) => {
+        setAgentSelect({...agentSelect, activeObject: agentData[index]})
+    }
+    const toggleStyles = (index) => {
+        if(agentSelect.activeObject === agentData[index]){
+            return 'cards active'
+        } else {
+            return 'cards inactive'
+        }
+    }
+
     return (
         <>
             <div id="agents-container">
                 {
-                    agentData.map(agents => (
-                        <div key={agents.uuid}>
+                    agentData.map((agents, index) => (
+                        <div key={agents.uuid} className={toggleStyles(index)} onClick={() => toggleActive(index)}>
                             <h2>{agents.displayName}</h2>
                             <img id='agent-portrait' src={agents.displayIcon} alt="agent-profile-img" />
                             <h3>{agents.role?.displayName}</h3>
