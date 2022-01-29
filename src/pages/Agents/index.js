@@ -2,25 +2,26 @@ import React, { useState, useEffect } from 'react';
 
 const Agents = ({ agentData, fetchVal }) => {
 
-    const [agentSelect, setAgentSelect]= useState({
+    const [agentSelect, setAgentSelect] = useState({
         activeObject: null
     })
     console.log(agentSelect)
 
-    useEffect(() => {
-        fetchVal();
-    }, []);
 
     const toggleActive = (index) => {
-        setAgentSelect({...agentSelect, activeObject: agentData[index]})
+        setAgentSelect({ ...agentSelect, activeObject: agentData[index] })
     }
     const toggleStyles = (index) => {
-        if(agentSelect.activeObject === agentData[index]){
+        if (agentSelect.activeObject === agentData[index]) {
             return 'cards active'
         } else {
             return 'cards inactive'
         }
     }
+
+    useEffect(() => {
+        fetchVal();
+    }, []);
 
     return (
         <>
