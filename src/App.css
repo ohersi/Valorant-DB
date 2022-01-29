@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-#val-container {
+#agents-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,6 +14,35 @@
   gap: 2rem;
 }
 
-#val-portrait {
+#agent-portrait {
   width: 10rem;
+}
+
+#weapons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+#weapons-portrait {
+  width: 20rem;
+}
+
+#map-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+#map-splash {
+  width: 20rem;
+}
+
+#video {
+  width: 720px;
+  height: 500pd;
 }

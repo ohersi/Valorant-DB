@@ -6,6 +6,8 @@ import Nav from './components';
 // Pages
 import Home from './pages/Home';
 import Agents from './pages/Agents';
+import Weapons from './pages/Weapons';
+import Maps from './pages/Maps';
 import Esports from './pages/Esports';
 // CSS
 import './App.css'
@@ -13,8 +15,11 @@ import './App.css'
 const App = () => {
 
   const [matchData, setMatchData] = useState([])
-  const [valData, setValData] = useState([])
+  const [agentData, setAgentData] = useState([])
+  const [weaponsData, setWeaponsData] = useState([])
+  const [mapData, setMapData] = useState([])
 
+  // ------------PandaScore-API -------------------- //
   const options = {
     method: 'GET',
     url: 'https://api.pandascore.co/valorant/matches',
@@ -34,19 +39,28 @@ const App = () => {
       console.error(error)
     }
   }
-
+  // ------------Valorant-API -------------------- //
   const fetchVal = async () => {
     try {
-      const response = await axios.get('https://valorant-api.com/v1/agents')
-      //removing duplicate Sova object
-      let array = response.data.data
-      let newArr = ''
-      array.map(() => {
-        newArr = array.filter(item => item.uuid !== 'ded3520f-4264-bfed-162d-b080e2abccf9' )
-      })
-       console.log('should be 18', newArr)
-      setValData(newArr)
+      const response = await axios.all([
+        axios.get('https://valorant-api.com/v1/agents'),
+        axios.get('https://valorant-api.com/v1/weapons'),
+        axios.get('https://valorant-api.com/v1/maps')
+      ]);
 
+      let agents = response[0].data.data
+      let weapons = response[1].data.data
+      let maps = response[2].data.data
+
+      //removing duplicate Sova object
+      let newAgentsArr = ''
+      agents.map(() => {
+        newAgentsArr = agents.filter(item => item.uuid !== 'ded3520f-4264-bfed-162d-b080e2abccf9' )
+      })
+
+      setAgentData(newAgentsArr)
+      setWeaponsData(weapons)
+      setMapData(maps)
     }
     catch (error) {
       console.error(error)
@@ -61,7 +75,9 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} /> 
-          <Route path='agents' element={<Agents valData={valData} fetchVal={fetchVal}/>} /> 
+          <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal}/>} /> 
+          <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal}/>} /> 
+          <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal}/>} /> 
           <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches}/>} /> 
         </Routes>
       </div>

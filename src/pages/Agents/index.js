@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Agents = ({ valData, fetchVal }) => {
+const Agents = ({ agentData, fetchVal }) => {
 
     useEffect(() => {
         fetchVal();
@@ -8,14 +8,13 @@ const Agents = ({ valData, fetchVal }) => {
 
     return (
         <>
-            <div id="val-container">
+            <div id="agents-container">
                 {
-                    valData.map(item => (
-                        <div key={item.displayName}>
-                            <h2>{item.isPlayableCharacter == true ?
-                                item.displayName : null}</h2>
-                            <img id='val-portrait' src={item.isPlayableCharacter == true ? item.displayIcon : null} alt="" />
-                            <h3>{item.isPlayableCharacter == true ? item.role?.displayName : null}</h3>
+                    agentData.map(agents => (
+                        <div key={agents.uuid}>
+                            <h2>{agents.displayName}</h2>
+                            <img id='agent-portrait' src={agents.displayIcon} alt="agent-profile-img" />
+                            <h3>{agents.role?.displayName}</h3>
                         </div>
                     ))
                 }
