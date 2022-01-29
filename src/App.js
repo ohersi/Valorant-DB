@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Agents from './pages/Agents';
 import Weapons from './pages/Weapons';
 import Maps from './pages/Maps';
+import Cards from './pages/Cards';
 import Esports from './pages/Esports';
 // CSS
 import './App.css'
@@ -18,6 +19,7 @@ const App = () => {
   const [agentData, setAgentData] = useState([])
   const [weaponsData, setWeaponsData] = useState([])
   const [mapData, setMapData] = useState([])
+  const [cardData, setCardData] = useState([])
 
   // ------------PandaScore-API -------------------- //
   const options = {
@@ -45,12 +47,14 @@ const App = () => {
       const response = await axios.all([
         axios.get('https://valorant-api.com/v1/agents'),
         axios.get('https://valorant-api.com/v1/weapons'),
-        axios.get('https://valorant-api.com/v1/maps')
+        axios.get('https://valorant-api.com/v1/maps'),
+        axios.get('https://valorant-api.com/v1/playercards')
       ]);
 
       let agents = response[0].data.data
       let weapons = response[1].data.data
       let maps = response[2].data.data
+      let cards = response[3].data.data
 
       //removing duplicate Sova object
       let newAgentsArr = ''
@@ -61,13 +65,14 @@ const App = () => {
       setAgentData(newAgentsArr)
       setWeaponsData(weapons)
       setMapData(maps)
+      setCardData(cards)
     }
     catch (error) {
       console.error(error)
     }
   }
 
-  // console.log(valData)
+  console.log(cardData)
 
   return (
     <>
@@ -78,6 +83,7 @@ const App = () => {
           <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal}/>} /> 
           <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal}/>} /> 
           <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal}/>} /> 
+          <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal}/>} /> 
           <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches}/>} /> 
         </Routes>
       </div>

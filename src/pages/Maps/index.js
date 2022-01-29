@@ -1,4 +1,4 @@
-import React, { useEffect, useEFfect} from 'react';
+import React, { useEffect } from 'react';
 
 const Maps = ({ mapData, fetchVal }) => {
 

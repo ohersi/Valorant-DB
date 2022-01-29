@@ -8,6 +8,7 @@ const Nav = () => {
             <Link to='agents'>Agents</Link>
             <Link to='weapons'>Weapons</Link>
             <Link to='maps'>Maps</Link>
+            <Link to='cards'>Cards</Link>
             <Link to='esports'>Esports</Link>
         </div>
     );
