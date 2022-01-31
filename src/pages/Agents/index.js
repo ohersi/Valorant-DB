@@ -6,7 +6,7 @@ const Agents = ({ agentData, fetchVal }) => {
     const [agentSelect, setAgentSelect] = useState({
         activeObject: null
     })
-    console.log(agentSelect)
+    // console.log(agentSelect)
     const [fullAgentCard, setFullAgentCard] = useState(false)
     const toggleFullAgent = e => {
         e.preventDefault()
@@ -26,7 +26,7 @@ const Agents = ({ agentData, fetchVal }) => {
     }
 
     let agentPanel = agentSelect.activeObject
-    console.log(agentPanel)
+    // console.log(agentPanel)
 
     useEffect(() => {
         fetchVal();

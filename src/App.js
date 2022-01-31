@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import axios from 'axios';
 // Components
-import Nav from './components';
+import Nav from './components/Nav';
 import Panel from './components/Panel';
 // Pages
 import Home from './pages/Home';
@@ -26,7 +26,7 @@ const App = () => {
   const options = {
     method: 'GET',
     url: 'https://api.pandascore.co/valorant/matches',
-  params: {sort: 'begin_at', page: '1', per_page: '50'},
+    params: { sort: 'begin_at', page: '1', per_page: '50' },
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_PANDASCORE_API_KEY}`
@@ -56,14 +56,25 @@ const App = () => {
       let weapons = response[1].data.data
       let maps = response[2].data.data
       let cards = response[3].data.data
+      let largeImages = [{ img: 'https://i.imgur.com/BEDX1qP.webp' }, { img: 'https://i.imgur.com/6RMhyXq.webp' }, { img: 'https://i.imgur.com/JrbvyFm.webp' }, { img: 'https://i.imgur.com/s1xOeDx.webp' }, { img: 'https://i.imgur.com/rlMnOIQ.webp' }, { img: 'https://i.imgur.com/pEEIBfc.webp' }, { img: 'https://i.imgur.com/PkBYcGy.webp' }, { img: 'https://i.imgur.com/c3QS1rT.webp' }, { img: 'https://i.imgur.com/Uyr0Qfg.webp' }, { img: 'https://i.imgur.com/IyKTVLE.webp' }, { img: 'https://i.imgur.com/VjhlOjm.webp' }, { img: 'https://i.imgur.com/5z6s1oa.webp' }, { img: 'https://i.imgur.com/nKwOnG4.webp' }, { img: 'https://i.imgur.com/I1XJV94.webp' }, { img: 'https://i.imgur.com/6FOyQIK.webp' }, { img: 'https://i.imgur.com/WrUYqn3.webp' }, { img: 'https://i.imgur.com/sYiAFLx.webp' }, { img: 'https://i.imgur.com/xEqP1d4.webp' }]
 
-      //removing duplicate Sova object
-      let newAgentsArr = ''
+      // removing duplicate Sova object
+      let filteredArr = ''
       agents.map(() => {
-        newAgentsArr = agents.filter(item => item.uuid !== 'ded3520f-4264-bfed-162d-b080e2abccf9' )
+        filteredArr = agents.filter(item => item.uuid !== 'ded3520f-4264-bfed-162d-b080e2abccf9')
       })
 
-      setAgentData(newAgentsArr)
+      // Going through each agent, add index (an object) of each largeImages array to each agent
+      const newAgentArr = filteredArr.map((obj, index) => (
+        { ...obj, largeImages: largeImages[index] }
+      ))
+
+      // console.log("New update", newImgArr)
+
+
+
+
+      setAgentData(newAgentArr)
       setWeaponsData(weapons)
       setMapData(maps)
       setCardData(cards)
@@ -73,19 +84,19 @@ const App = () => {
     }
   }
 
-  // console.log(cardData)
+  // console.log(agentData)
 
   return (
     <>
       <div id='main'>
         <Nav />
         <Routes>
-          <Route path='/' element={<Home />} /> 
-          <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal}/>} /> 
-          <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal}/>} /> 
-          <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal}/>} /> 
-          <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal}/>} /> 
-          <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches}/>} /> 
+          <Route path='/' element={<Home />} />
+          <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />
+          <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal} />} />
+          <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal} />} />
+          <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal} />} />
+          <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
         </Routes>
       </div>
     </>
