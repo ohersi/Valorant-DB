@@ -1,10 +1,23 @@
-* {
+/* * {
   --ms-overflow-style: none;
-  scrollbar-width: none;
+  scrollbar-width: 2rem;
   overflow-y: scroll;
+} */
+
+* ::-webkit-scrollbar-track {
+background: rgb(89, 96, 110);
 }
+* ::-webkit-scrollbar-thumb {
+  background: rgb(56, 64, 80);
+  border-radius: 100vw;
+  }
+  * ::-webkit-scrollbar-thumb:hover {
+    background: rgb(29, 33, 41);
+    }
+
 * ::-webkit-scrollbar {
-  display: none
+  /* display: none */
+  width: 0.8rem;
 }
 
 /* ------- Agents -------  */
@@ -14,6 +27,7 @@
   justify-content: center;
   text-align: center;
   gap: 2rem;
+  height: 100vh;
 }
 
 #agent-portrait {
@@ -25,13 +39,18 @@
 }
 
 .inactive {
-background-color: red;
+  /* border: 1px solid black; */
+  border-radius: 0.8rem;
+background-color: #161a25;
+color: white;
 }
 
 .active {
-  width: 20rem;
-  height: auto;
-  background-color: orange;
+  /* width: 20rem;
+  height: auto; */
+  border-radius: 0.8rem;
+  background-color: #FF4454;
+  
 }
 
 /* ------- Weapons -------  */
@@ -67,7 +86,7 @@ background-color: red;
 }
 
 /* ------- Cards -------  */
-#main-dv {
+#main-div {
   background-color: rgb(82, 82, 219);
   height: 100vh;
   display: grid;
@@ -111,8 +130,27 @@ background-color: red;
 /* ------- Matches -------  */
 #match-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: rgb(66, 81, 109);
+  text-align: center;
+}
+
+/* --------------- TESTING  ---------------  */
+
+.panel {
+  background-color: rgb(66, 81, 109);
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
-  text-align: center;
+  align-items: center;
+ 
+
 }

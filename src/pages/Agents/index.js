@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Panel from '../../components/Panel';
 
 const Agents = ({ agentData, fetchVal }) => {
 
@@ -6,6 +7,11 @@ const Agents = ({ agentData, fetchVal }) => {
         activeObject: null
     })
     console.log(agentSelect)
+    const [fullAgentCard, setFullAgentCard] = useState(false)
+    const toggleFullAgent = e => {
+        e.preventDefault()
+        setFullAgentCard(!fullAgentCard)
+    }
 
 
     const toggleActive = (index) => {
@@ -19,12 +25,19 @@ const Agents = ({ agentData, fetchVal }) => {
         }
     }
 
+    let agentPanel = agentSelect.activeObject
+    console.log(agentPanel)
+
     useEffect(() => {
         fetchVal();
     }, []);
 
     return (
         <>
+        <div onClick={toggleFullAgent} id="main-agent">
+            {
+            fullAgentCard ? 
+            <Panel agentPanel={agentPanel}  toggleActive={toggleActive}/> :
             <div id="agents-container">
                 {
                     agentData.map((agents, index) => (
@@ -36,6 +49,10 @@ const Agents = ({ agentData, fetchVal }) => {
                     ))
                 }
             </div>
+}
+        </div>
+        
+        
         </>
     );
 }

@@ -3,6 +3,7 @@ import {Routes, Route } from 'react-router-dom'
 import axios from 'axios';
 // Components
 import Nav from './components';
+import Panel from './components/Panel';
 // Pages
 import Home from './pages/Home';
 import Agents from './pages/Agents';
@@ -25,7 +26,7 @@ const App = () => {
   const options = {
     method: 'GET',
     url: 'https://api.pandascore.co/valorant/matches',
-    params: { sort: '', page: '1', per_page: '10' },
+  params: {sort: 'begin_at', page: '1', per_page: '50'},
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_PANDASCORE_API_KEY}`
@@ -72,7 +73,7 @@ const App = () => {
     }
   }
 
-  console.log(cardData)
+  // console.log(cardData)
 
   return (
     <>

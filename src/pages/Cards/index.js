@@ -18,7 +18,7 @@ const Cards = ({ cardData, fetchVal }) => {
 
     return (
         <>
-            <div id="main-dv">
+            <div id="main-div">
                 <div id='test'>
                     <div id="pc">
                         <img src={previewCard} alt="preview-card" />
