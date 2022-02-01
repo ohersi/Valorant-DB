@@ -9,10 +9,14 @@
   background-color: rgb(136, 67, 67);
 }
   
-#weapons-portrait {
-  width: 20rem;
+.weapons-portrait {
+  width: 30rem;
+}
+
+.chroma {
+  width: 17rem;
 }
   
 #video {
-  width: 720px;
+  width: 480px;
 }

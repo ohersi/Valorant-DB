@@ -42,13 +42,22 @@ const Agents = ({ agentData, fetchVal }) => {
                 {
                     fullAgentCard && agentSelect.activeObject !== null ?
                         <AnimatePresence>
-                          <Panel agentPanel={agentPanel} toggleActive={toggleActive} />  
+                            <Panel agentPanel={agentPanel} toggleActive={toggleActive} />
                         </AnimatePresence>
-                         :
-                        <motion.div id="agents-container" layoutId="cards" >
+                        :
+                        <motion.div id="agents-container" layoutId="cards">
                             {
                                 agentData.map((agents, index) => (
-                                    <motion.div key={agents.uuid} className={toggleStyles(index)} onClick={() => toggleActive(index)} type='crossfade' initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 0}} transition={{duration: 0.4}}>
+                                    <motion.div
+                                        key={agents.uuid}
+                                        className={toggleStyles(index)}
+                                        onClick={() => toggleActive(index)}
+                                        type='crossfade'
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.4 }}
+                                    >
                                         <h2>{agents.displayName}</h2>
                                         <img id='agent-portrait' src={agents.displayIcon} alt="agent-profile-img" />
                                         <h3>{agents.role?.displayName}</h3>
