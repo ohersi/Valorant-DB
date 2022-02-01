@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// CSS
+import './cards.css'
 
 const Cards = ({ cardData, fetchVal }) => {
 

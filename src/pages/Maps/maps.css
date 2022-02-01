@@ -1,0 +1,22 @@
+/* ------- Maps -------  */
+
+#main-map {
+    display: grid;
+    grid-template-areas: 
+    'maps side';
+    grid-template-columns: 85% 15%;
+  }
+  #map-container {
+    background-color: tomato;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    grid-area: maps;
+  }
+  
+  #map-splash {
+    width: 50rem;
+  }

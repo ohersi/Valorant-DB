@@ -1,0 +1,43 @@
+/* ------- Cards -------  */
+
+#main-div {
+    background-color: rgb(82, 82, 219);
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "cards big";
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 20px;
+}
+
+#card-container {
+    /* background-color: rgb(184, 106, 106); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 8px;
+    gap: 1rem;
+    grid-area: cards;
+    overflow: scroll;
+}
+  
+#card-art {
+    width: 10rem;
+}
+  
+#test {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellowgreen;
+    grid-area: big
+}
+
+#pc {
+    width: auto;
+    height: auto;
+    background-color: red;
+}

@@ -1,0 +1,11 @@
+/* ------- Matches -------  */
+
+#match-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: rgb(66, 81, 109);
+    text-align: center;
+}

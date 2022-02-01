@@ -1,0 +1,18 @@
+/* ------- Weapons -------  */
+
+#weapons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  background-color: rgb(136, 67, 67);
+}
+  
+#weapons-portrait {
+  width: 20rem;
+}
+  
+#video {
+  width: 720px;
+}

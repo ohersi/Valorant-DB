@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import axios from 'axios';
+import { motion, AnimateSharedLayout } from 'framer-motion'
 // Components
 import Nav from './components/Nav';
-import Panel from './components/Panel';
 // Pages
 import Home from './pages/Home';
 import Agents from './pages/Agents';
@@ -88,17 +88,20 @@ const App = () => {
 
   return (
     <>
-      <div id='main'>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />
-          <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal} />} />
-          <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal} />} />
-          <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal} />} />
-          <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
-        </Routes>
-      </div>
+      <AnimateSharedLayout>
+        <div id='main'>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />
+            <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal} />} />
+            <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal} />} />
+            <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal} />} />
+            <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
+          </Routes>
+        </div>
+      </AnimateSharedLayout>
+
     </>
   );
 }

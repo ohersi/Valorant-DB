@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+// Components
 import Panel from '../../components/Panel';
+// CSS
+import './agents.css'
 
 const Agents = ({ agentData, fetchVal }) => {
 
@@ -26,7 +30,7 @@ const Agents = ({ agentData, fetchVal }) => {
     }
 
     let agentPanel = agentSelect.activeObject
-    // console.log(agentPanel)
+    console.log(fullAgentCard)
 
     useEffect(() => {
         fetchVal();
@@ -34,25 +38,26 @@ const Agents = ({ agentData, fetchVal }) => {
 
     return (
         <>
-        <div onClick={toggleFullAgent} id="main-agent">
-            {
-            fullAgentCard ? 
-            <Panel agentPanel={agentPanel}  toggleActive={toggleActive}/> :
-            <div id="agents-container">
+            <div onClick={toggleFullAgent} id="main-agent">
                 {
-                    agentData.map((agents, index) => (
-                        <div key={agents.uuid} className={toggleStyles(index)} onClick={() => toggleActive(index)}>
-                            <h2>{agents.displayName}</h2>
-                            <img id='agent-portrait' src={agents.displayIcon} alt="agent-profile-img" />
-                            <h3>{agents.role?.displayName}</h3>
-                        </div>
-                    ))
+                    fullAgentCard && agentSelect.activeObject !== null ?
+                        <AnimatePresence>
+                          <Panel agentPanel={agentPanel} toggleActive={toggleActive} />  
+                        </AnimatePresence>
+                         :
+                        <motion.div id="agents-container" layoutId="cards" >
+                            {
+                                agentData.map((agents, index) => (
+                                    <motion.div key={agents.uuid} className={toggleStyles(index)} onClick={() => toggleActive(index)} type='crossfade' initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 0}} transition={{duration: 0.4}}>
+                                        <h2>{agents.displayName}</h2>
+                                        <img id='agent-portrait' src={agents.displayIcon} alt="agent-profile-img" />
+                                        <h3>{agents.role?.displayName}</h3>
+                                    </motion.div>
+                                ))
+                            }
+                        </motion.div>
                 }
             </div>
-}
-        </div>
-        
-        
         </>
     );
 }

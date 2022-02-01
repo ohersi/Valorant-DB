@@ -1,4 +1,6 @@
 import React, { useEffect, useEFfect } from 'react';
+// CSS
+import './weapons.css'
 
 const Weapons = ({ weaponsData, fetchVal }) => {
 

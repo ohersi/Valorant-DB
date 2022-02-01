@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+// CSS
+import './esports.css'
 
 const Esports = ({ matchData, fetchMatches }) => {
 

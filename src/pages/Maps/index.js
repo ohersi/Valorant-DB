@@ -1,4 +1,8 @@
 import React, { useEffect } from 'react';
+// Components
+import Sidebar from '../../components/Sidebar';
+// CSS
+import './maps.css'
 
 const Maps = ({ mapData, fetchVal }) => {
 
@@ -6,11 +10,11 @@ const Maps = ({ mapData, fetchVal }) => {
         fetchVal()
     }, []);
     return (
-        <>
-        <div id="map-container">
+        <><div id="main-map">
+            <div id="map-container">
             {
                 mapData.map(map => (
-                    <div key={map.uuid}>
+                    <div key={map.uuid} id={map.displayName}>
                         <h2>{map.displayName}</h2>
                         <h4>{map.coordinates}</h4>
                         <img id='map-splash' src={map.splash} alt="splash-img" />
@@ -18,6 +22,9 @@ const Maps = ({ mapData, fetchVal }) => {
                 ))
             }
         </div>
+        <Sidebar/>
+        </div>
+        
     </>
     );
 }
