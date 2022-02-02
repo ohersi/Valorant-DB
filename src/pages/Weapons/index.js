@@ -11,30 +11,25 @@ const Weapons = ({ weaponsData, fetchVal }) => {
     // Check if skin level to display the highest
     const weaponLevels = (skins) => {
         if (skins.levels[4] !== undefined) {
-            console.log("Level 5")
             return skins.levels[4].streamedVideo;
         }
         else if (skins.levels[3] !== undefined) {
-            console.log("Level 4")
             return skins.levels[3].streamedVideo;
         }
         else if (skins.levels[2] !== undefined) {
-            console.log("Level 3")
             return skins.levels[2].streamedVideo;
         }
         else if (skins.levels[1] !== undefined) {
-            console.log("Level 2")
             return skins.levels[1].streamedVideo;
         }
         else if (skins.levels[0] !== undefined) {
-            console.log("Level 1")
             return skins.levels[0].streamedVideo;
         }
         else {
-            console.log("empty")
             return null
         }
     }
+
 
     return (
         <>
@@ -54,10 +49,13 @@ const Weapons = ({ weaponsData, fetchVal }) => {
                                                 <img className='chroma' src={chroma.fullRender} alt="chroma" />
                                             ))
                                         }
-                                       {/* TODO: Hide videos with empty sources */}
-                                        <video id='video' controls>
-                                            <source src={weaponLevels(skins)} type="video/mp4" />
-                                        </video>
+                                        {
+                                            weaponLevels(skins) !== null ?
+                                                <video id='video' controls>
+                                                    <source src={weaponLevels(skins)} type="video/mp4" />
+                                                </video>
+                                                : null
+                                        }
                                     </div>
                                 ))
                             }
