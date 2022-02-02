@@ -21,8 +21,8 @@ const Cards = ({ cardData, fetchVal }) => {
     return (
         <>
             <div id="main-div">
-                <div id='test'>
-                    <div id="pc">
+                <div id='lg-card-panel'>
+                    <div id="lg-card">
                         <img src={previewCard} alt="preview-card" />
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const Cards = ({ cardData, fetchVal }) => {
                                 <img id='card-art'
                                     src={card.largeArt}
                                     onClick={() => toggleActive(index)}
-                                    alt="card-img"
+                                    alt={`${card.displayName}-card`}
                                 />
                             </div>
                         ))

@@ -18,3 +18,7 @@
     background-color: rgb(190, 60, 51);
     color: white;
   }
+
+  a {
+    cursor: pointer;
+  }

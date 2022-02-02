@@ -12,7 +12,7 @@ const Panel = ({ agentPanel, toggleF }) => {
                 agentPanel == null ? null :
                     <motion.div className='panel' type="crossfade" initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 1}}>
                         <h2>{agentPanel.displayName}</h2>
-                        <img id='agent-renders' src={agentPanel.largeImages.img ? agentPanel.largeImages.img : agentPanel.displayIcon} alt="agent-profile-img" />
+                        <img id='agent-renders' src={agentPanel.largeImages.img ? agentPanel.largeImages.img : agentPanel.displayIcon} alt={`${agentPanel.displayName}-agent`} />
                         <h3>{agentPanel.role?.displayName}</h3>
                         <h4>{agentPanel.description}</h4>
                     </motion.div>

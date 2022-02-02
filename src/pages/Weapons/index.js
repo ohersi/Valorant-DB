@@ -33,20 +33,20 @@ const Weapons = ({ weaponsData, fetchVal }) => {
 
     return (
         <>
-            <button onClick={fetchVal}>Test for video</button>
+            {/* <button onClick={fetchVal}>Test for video</button> */}
             <div id="weapons-container">
                 {
                     weaponsData.map(weapons => (
-                        <div key={weapons.displayName}>
+                        <div key={weapons.uuid}>
                             <h2>{weapons.displayName}</h2>
-                            <img className='weapons-portrait' src={weapons.displayIcon} alt="img" />
+                            <img className='weapons-portrait' src={weapons.displayIcon} alt={`${weapons.displayName}-weapon`} />
                             {
                                 weapons.skins.map(skins => (
-                                    <div className='skins'>
+                                    <div className='skins' key={skins.uuid}>
                                         <h4>{skins.displayName}</h4>
                                         {
                                             skins.chromas.map(chroma => (
-                                                <img className='chroma' src={chroma.fullRender} alt="chroma" />
+                                                <img key={chroma.uuid} className='chroma' src={chroma.fullRender} alt={`${chroma.displayName} chroma`} />
                                             ))
                                         }
                                         {

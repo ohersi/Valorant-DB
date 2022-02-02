@@ -24,9 +24,10 @@
   
 #card-art {
     width: 10rem;
+    cursor: pointer;
 }
   
-#test {
+#lg-card-panel {
     width: auto;
     height: auto;
     display: flex;
@@ -36,7 +37,7 @@
     grid-area: big
 }
 
-#pc {
+#lg-card {
     width: auto;
     height: auto;
     background-color: red;
