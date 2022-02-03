@@ -6,9 +6,21 @@
   justify-content: center;
   text-align: center;
   gap: 2rem;
-  background-color: rgb(136, 67, 67);
+  background-color: #161a25;
+  color: white;
 }
-  
+/* .weapons {
+  background-color: blue;
+} */
+
+.skins {
+  background-color: rgb(102, 111, 151);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
 .weapons-portrait {
   width: 30rem;
 }

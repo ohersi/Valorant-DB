@@ -12,8 +12,8 @@ const Agents = ({ agentData, fetchVal }) => {
     })
     // console.log(agentSelect)
     const [fullAgentCard, setFullAgentCard] = useState(false)
-    const toggleFullAgent = e => {
-        e.preventDefault()
+    
+    const toggleFullAgent = () => {
         setFullAgentCard(!fullAgentCard)
     }
 
@@ -39,10 +39,10 @@ const Agents = ({ agentData, fetchVal }) => {
     return (
         <>
             <AnimatePresence>
-                <div onClick={toggleFullAgent} id="main-agent">
+                <div  id="main-agent">
                     {
                         fullAgentCard && agentSelect.activeObject !== null ?
-                            <Panel agentPanel={agentPanel} toggleActive={toggleActive} />
+                            <Panel agentPanel={agentPanel} toggleActive={toggleActive} toggleFullAgent={toggleFullAgent}/>
                             :
                             <motion.div id="agents-container" layoutId="cards">
                                 {
@@ -50,7 +50,7 @@ const Agents = ({ agentData, fetchVal }) => {
                                         <motion.div
                                             key={agents.uuid}
                                             className={toggleStyles(index)}
-                                            onClick={() => toggleActive(index)}
+                                            onClick={() => {toggleActive(index); toggleFullAgent()}}
                                             type='crossfade'
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}

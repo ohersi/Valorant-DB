@@ -1,8 +1,15 @@
-import React, { useEffect, useEFfect } from 'react';
+import React, { useState, useEffect } from 'react';
+import {motion, AnimateSharedLayout} from 'framer-motion'
 // CSS
 import './weapons.css'
 
 const Weapons = ({ weaponsData, fetchVal }) => {
+
+    const [isClicked, setIsClicked] = useState(null)
+
+    const toggleClick = (index) => {
+        setIsClicked( isClicked === index ? null : index)
+    }
 
     useEffect(() => {
         fetchVal()
@@ -36,12 +43,14 @@ const Weapons = ({ weaponsData, fetchVal }) => {
             {/* <button onClick={fetchVal}>Test for video</button> */}
             <div id="weapons-container">
                 {
-                    weaponsData.map(weapons => (
-                        <div key={weapons.uuid}>
+                    weaponsData.map((weapons,index) => (
+                        <div className='weapons' key={weapons.uuid}>
                             <h2>{weapons.displayName}</h2>
-                            <img className='weapons-portrait' src={weapons.displayIcon} alt={`${weapons.displayName}-weapon`} />
+                            <img onClick={() => toggleClick(index)} className='weapons-portrait' src={weapons.displayIcon} alt={`${weapons.displayName}-weapon`} />
+                            
                             {
-                                weapons.skins.map(skins => (
+                                isClicked == index ? 
+                                weapons.skins.map((skins) => (
                                     <div className='skins' key={skins.uuid}>
                                         <h4>{skins.displayName}</h4>
                                         {
@@ -51,13 +60,14 @@ const Weapons = ({ weaponsData, fetchVal }) => {
                                         }
                                         {
                                             weaponLevels(skins) !== null ?
-                                                <video id='video' controls>
+                                                <video id='video' controls preload="none">
                                                     <source src={weaponLevels(skins)} type="video/mp4" />
                                                 </video>
                                                 : null
                                         }
                                     </div>
                                 ))
+                                : null
                             }
                         </div>
                     ))
