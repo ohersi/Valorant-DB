@@ -20,6 +20,16 @@ background: rgb(89, 96, 110);
   width: 0.8rem;
 }
 
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content:  center;
+  flex-direction: column;
+  background-color: #FF4454;
+  color: white;
+}
+
+
 
 
 

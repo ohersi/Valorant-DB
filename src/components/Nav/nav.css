@@ -1,0 +1,22 @@
+#main-nav {
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    justify-content: space-evenly;
+}
+
+.btn {
+    display: inline-block;
+    position: relative;
+    padding: 1rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.shadow {
+    position: absolute;
+    inset: 0;
+    background-color: crimson;
+    z-index: -1;
+}
+
