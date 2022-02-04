@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import axios from 'axios';
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 // Components
 import Nav from './components/Nav';
 // Pages
@@ -18,11 +18,13 @@ import largeImages from './images';
 
 const App = () => {
 
-  const [matchData, setMatchData] = useState([])
-  const [agentData, setAgentData] = useState([])
-  const [weaponsData, setWeaponsData] = useState([])
-  const [mapData, setMapData] = useState([])
-  const [cardData, setCardData] = useState([])
+  const [matchData, setMatchData] = useState([]);
+  const [agentData, setAgentData] = useState([]);
+  const [weaponsData, setWeaponsData] = useState([]);
+  const [mapData, setMapData] = useState([]);
+  const [cardData, setCardData] = useState([]);
+
+  const location = useLocation();
 
   // ------------PandaScore-API -------------------- //
   const options = {
@@ -70,11 +72,6 @@ const App = () => {
         { ...obj, largeImages: largeImages[index] }
       ))
 
-      // console.log("New update", newImgArr)
-
-
-
-
       setAgentData(newAgentArr)
       setWeaponsData(weapons)
       setMapData(maps)
@@ -84,15 +81,14 @@ const App = () => {
       console.error(error)
     }
   }
-
-  // console.log(agentData)
-
+  
   return (
     <>
       <AnimateSharedLayout>
         <div id='main'>
           <Nav />
-          <Routes>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />
             <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal} />} />
@@ -100,6 +96,8 @@ const App = () => {
             <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal} />} />
             <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
           </Routes>
+          </AnimatePresence>
+          
         </div>
       </AnimateSharedLayout>
 

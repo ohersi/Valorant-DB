@@ -4,27 +4,29 @@ import './cards.css'
 
 const Cards = ({ cardData, fetchVal }) => {
 
-    const [cardSelect, setCardSelect] = useState({activeObject: null})
-    const [previewCard, setPreviewCard] = useState([])
+    const [cardSelect, setCardSelect] = useState({ activeObject: null })
 
     const toggleActive = (index) => {
         setCardSelect({ ...cardSelect, activeObject: cardData[index] })
-        setPreviewCard(cardSelect.activeObject.largeArt)
     }
 
     useEffect(() => {
         fetchVal()
     }, []);
-    console.log("clicked on", cardSelect)
-    console.log("this is the preview card:", previewCard)
 
     return (
         <>
             <div id="main-div">
                 <div id='lg-card-panel'>
-                    <div id="lg-card">
-                        <img src={previewCard} alt="preview-card" />
-                    </div>
+                    {
+                        cardSelect.activeObject !== null ?
+                            <div>
+                                <h2>{cardSelect.activeObject.displayName}</h2>
+                                <img id="lg-card" src={cardSelect.activeObject.largeArt} alt={`${cardSelect.activeObject.displayName}-card`} />
+                            </div>
+                            :
+                            <div id='empty'>PREVIEW</div>
+                    }
                 </div>
 
                 <div id="card-container">
@@ -42,7 +44,6 @@ const Cards = ({ cardData, fetchVal }) => {
                     }
                 </div>
             </div>
-
         </>
     );
 }

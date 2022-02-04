@@ -1,12 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 // CSS
 import './panel.css'
 
 const Panel = ({ agentPanel, toggleFullAgent }) => {
     console.log(agentPanel)
     return (
-        <> <motion.div onClick={toggleFullAgent} className="panel-container" transition={{ duration: 0.4}} layoutId="cards" >
+        <> 
+            <motion.div onClick={toggleFullAgent} className="panel-container" transition={{ duration: 0.4}} layoutId="cards" >
             {
                 //agentPanel is null until an agent is clicked, ternary to prevent page from rendering empty prop
                 agentPanel == null ? null :

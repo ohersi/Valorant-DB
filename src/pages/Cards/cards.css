@@ -6,8 +6,7 @@
     display: grid;
     grid-template-areas: 
     "cards big";
-    grid-template-columns: 60% 40%;
-    grid-column-gap: 20px;
+    grid-template-columns: 65% 35%;
 }
 
 #card-container {
@@ -19,7 +18,10 @@
     font-size: 8px;
     gap: 1rem;
     grid-area: cards;
+    margin: 0.5rem;
+    padding: 1rem;
     overflow: scroll;
+    overflow-x: hidden;
 }
   
 #card-art {
@@ -33,12 +35,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellowgreen;
-    grid-area: big
+    text-align: center;
+    background-color: rgb(50, 68, 128);
+    color: white;
+    grid-area: big;
 }
 
 #lg-card {
     width: auto;
-    height: auto;
-    background-color: red;
+    height: 40rem;
+}
+
+#empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17rem;
+    height: 40rem;
+    margin-top: 12%;
+    background-color: rgb(23, 32, 61);
+    color: white;
 }
