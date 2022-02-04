@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
+// Components
+import Loader from '../../components/Loader';
 // CSS
 import './cards.css'
 
 const Cards = ({ cardData, fetchVal }) => {
 
     const [cardSelect, setCardSelect] = useState({ activeObject: null })
+    const [loading, setLoading] = useState(true)
 
     const toggleActive = (index) => {
         setCardSelect({ ...cardSelect, activeObject: cardData[index] })
     }
 
     useEffect(() => {
-        fetchVal()
+        fetchVal();
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000);
     }, []);
 
     return (
-        <>
+        <> {
+            loading ? <Loader /> :
             <div id="main-div">
                 <div id='lg-card-panel'>
                     {
@@ -44,6 +51,8 @@ const Cards = ({ cardData, fetchVal }) => {
                     }
                 </div>
             </div>
+        }
+            
         </>
     );
 }

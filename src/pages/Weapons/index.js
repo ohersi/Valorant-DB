@@ -5,17 +5,22 @@ import Skins from '../../components/Skins';
 import Sidebar from '../../components/Sidebar';
 // CSS
 import './weapons.css'
+import Loader from '../../components/Loader';
 
 const Weapons = ({ weaponsData, fetchVal }) => {
 
     const [isClicked, setIsClicked] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     const toggleClick = (index) => {
         setIsClicked(isClicked === index ? null : index)
     }
 
     useEffect(() => {
-        fetchVal()
+        fetchVal();
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000);
     }, []);
 
     // Check skin level to display the highest
@@ -41,7 +46,8 @@ const Weapons = ({ weaponsData, fetchVal }) => {
     }
 
     return (
-        <>
+        <> {
+            loading ? <Loader /> :
             <motion.div id='main-weapons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <div id="weapons-container">
                     {
@@ -64,6 +70,8 @@ const Weapons = ({ weaponsData, fetchVal }) => {
                 </div>
                 <Sidebar weaponsData={weaponsData}/>
             </motion.div>
+        }
+            
         </>
     );
 }
