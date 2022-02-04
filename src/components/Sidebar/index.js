@@ -2,19 +2,34 @@ import React from 'react';
 import { Link } from 'react-scroll'
 import './sidebar.css'
 
-const Sidebar = () => {
+const Sidebar = ({ mapData, weaponsData }) => {
+
+    console.log(window.location.href)
+    let url = window.location.href
+    
     return (
         <div className='sidebar-container'>
-            <div id='sidebar'>
-                <Link to='Ascent' smooth={true}>Ascent</Link>
-                <Link to='Split' smooth={true}>Split</Link>
-                <Link to='Fracture' smooth={true}>Fracture</Link>
-                <Link to='Bind' smooth={true}>Bind</Link>
-                <Link to='Breeze' smooth={true}>Breeze</Link>
-                <Link to='Icebox' smooth={true}>Icebox</Link>
-                <Link to='The Range' smooth={true}>The Range</Link>
-                <Link to='Haven' smooth={true}>Haven</Link>
-            </div>
+            {   url == 'http://localhost:3000/maps' ?
+                <div id='maps-sidebar'>
+                    {
+                        mapData.map(map => (
+                            <div key={map.uuid} id={map.displayName}>
+                                <Link to={`${map.displayName}`} smooth={true}>{map.displayName}</Link>
+                            </div>
+                        ))
+                    }
+                </div>
+                : 
+                <div id='weapons-sidebar'>
+                    {
+                        weaponsData.map(weapons => (
+                            <div key={weapons.uuid} id={weapons.displayName}>
+                                <Link to={`${weapons.displayName}`} smooth={true}>{weapons.displayName}</Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            }
 
         </div>
     );

@@ -24,7 +24,7 @@ const Maps = ({ mapData, fetchVal }) => {
                         ))
                     }
                 </div>
-                <Sidebar />
+                <Sidebar mapData={mapData}/>
             </div>
         </>
     );

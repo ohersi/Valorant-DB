@@ -1,0 +1,27 @@
+/* ------- Skins -------  */
+
+#skins-container {
+    background-color: tomato;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    /* height: 100%; */
+    width: 100%;
+}
+
+.skins {
+    /* background-color: rgb(102, 111, 151); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.chroma {
+    width: 17rem;
+}
+    
+#video {
+    width: 720px;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 // Components
 import Panel from '../../components/Panel';
 // CSS

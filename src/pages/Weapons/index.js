@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion } from 'framer-motion';
+// Components
+import Skins from '../../components/Skins';
+import Sidebar from '../../components/Sidebar';
 // CSS
 import './weapons.css'
 
@@ -37,43 +40,30 @@ const Weapons = ({ weaponsData, fetchVal }) => {
         }
     }
 
-
     return (
         <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div id='main-weapons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <div id="weapons-container">
                     {
                         weaponsData.map((weapons, index) => (
-                            <div className='weapons' key={weapons.uuid}>
+                            <div className='weapons' key={weapons.uuid} id={weapons.displayName}>
                                 <h2>{weapons.displayName}</h2>
-                                <img onClick={() => toggleClick(index)} className='weapons-portrait' src={weapons.displayIcon} alt={`${weapons.displayName}-weapon`} />
+                                <img onClick={() => toggleClick(index)}
+                                    className='weapons-portrait'
+                                    src={weapons.displayIcon}
+                                    alt={`${weapons.displayName}-weapon`}
+                                />
                                 {
                                     isClicked == index ?
-                                        weapons.skins.map((skins) => (
-                                            <div className='skins' key={skins.uuid}>
-                                                <h4>{skins.displayName}</h4>
-                                                {
-                                                    skins.chromas.map(chroma => (
-                                                        <img key={chroma.uuid} className='chroma' src={chroma.fullRender} alt={`${chroma.displayName} chroma`} />
-                                                    ))
-                                                }
-                                                {
-                                                    weaponLevels(skins) !== null ?
-                                                        <video id='video' controls preload="none">
-                                                            <source src={weaponLevels(skins)} type="video/mp4" />
-                                                        </video>
-                                                        : null
-                                                }
-                                            </div>
-                                        ))
+                                        <Skins weapons={weapons} weaponLevels={weaponLevels} />
                                         : null
                                 }
                             </div>
                         ))
                     }
                 </div>
+                <Sidebar weaponsData={weaponsData}/>
             </motion.div>
-
         </>
     );
 }

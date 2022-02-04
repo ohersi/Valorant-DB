@@ -23,6 +23,11 @@
     overflow: scroll;
     overflow-x: hidden;
 }
+
+div#card-container::-webkit-scrollbar-track {
+    background: rgb(89, 96, 110);
+    border-radius: 100vw;
+}
   
 #card-art {
     width: 10rem;
