@@ -9,7 +9,9 @@ const Sidebar = ({ mapData, weaponsData }) => {
     
     return (
         <div className='sidebar-container'>
-            {   url == 'http://localhost:3000/maps' ?
+            {   
+                url.includes('maps') ?
+                
                 <div id='maps-sidebar'>
                     {
                         mapData.map(map => (

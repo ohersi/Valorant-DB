@@ -1,4 +1,18 @@
 
 .home-main {
- background-color: crimson;
+ background-color: rgb(220, 20, 60);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 3rem;
+}
+.val-logo {
+    display: flex;
+    align-items: center;
+    height: 50vh;
+}
+
+#val-logo-right {
+    margin-bottom: 23%;
+    margin-left: -8%;
 }
