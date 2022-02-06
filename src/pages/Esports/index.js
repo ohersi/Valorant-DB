@@ -11,7 +11,7 @@ const Esports = ({ matchData, fetchMatches }) => {
         fetchMatches();
         setTimeout(() => {
             setLoading(false)
-        }, 1800);
+        }, 1500);
     }, []);
 
     console.log(matchData)
@@ -23,12 +23,12 @@ const Esports = ({ matchData, fetchMatches }) => {
                     <div id="match-container">
                         {
                             matchData.map((matches) => (
-                                <div key={matches.id}>
+                                <div className='match-cards' key={matches.id}>
                                     <img src={matches.league.image_url} alt="" style={{ width: '10rem' }} />
                                     <h3>{matches.league.name}</h3>
-                                    <h4 style={{ color: 'red' }}>{matches.name}</h4>
+                                    <h4>{matches.name}</h4>
                                     <p>{matches.begin_at}</p>
-                                    <a href={matches.official_stream_url}>Watch on Twitch</a>
+                                    <a id='twitch-link' href={matches.official_stream_url}>Watch on Twitch</a>
                                 </div>
                             ))
                         }

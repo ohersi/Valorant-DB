@@ -6,6 +6,44 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    background-color: rgb(66, 81, 109);
+    background-color: rgba(15,23,34,255);
     text-align: center;
+    padding: 1rem;
 }
+
+.match-cards {
+    background-color: #ee4755;
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(216, 216, 216);
+}
+
+#twitch-link {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 10rem;
+    background-color: rgb(15,23,34,255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    }
+    
+#twitch-link:visited { 
+    display: inline-block;
+    padding: 15px 32px;
+    border-radius: 10rem;
+    background-color: rgb(15,23,34,255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    }
