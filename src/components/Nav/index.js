@@ -11,8 +11,7 @@ const Nav = () => {
     return (
         <AnimateSharedLayout>
             <motion.div id='main-nav' onHoverEnd={() => setActiveIndex(null)} >
-                {console.log(activeIndex)}
-
+                {/* {console.log(activeIndex)} */}
                 <Link to='/'>
                     <motion.div onHoverStart={() => setActiveIndex(0)} className='btn'>
                         Home

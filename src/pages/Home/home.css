@@ -2,10 +2,16 @@
 
 .home-main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: rgb(251, 68, 84);
+    color: white;
      /* 248, 69, 85 */
     /* 16, 24, 35 */
+}
+
+#home-title {
+    padding: 1rem;
 }

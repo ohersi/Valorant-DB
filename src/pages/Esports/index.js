@@ -14,8 +14,7 @@ const Esports = ({ matchData, fetchMatches }) => {
         }, 1500);
     }, []);
 
-    console.log(matchData)
-
+    // console.log(matchData)
     return (
         <>
             {

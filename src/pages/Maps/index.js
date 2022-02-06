@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../../components/Loader';
+import { motion } from 'framer-motion'
 // Components
 import Sidebar from '../../components/Sidebar';
 // CSS
@@ -8,6 +9,7 @@ import './maps.css'
 const Maps = ({ mapData, fetchVal }) => {
 
     const [loading, setLoading] = useState(true)
+    const fadein = { duration: 0.4, ease: [.49,.09,.55,1.03] };
 
     useEffect(() => {
         fetchVal();
@@ -25,8 +27,12 @@ const Maps = ({ mapData, fetchVal }) => {
                             {
                                 mapData.map(map => (
                                     <div className='maps' key={map.uuid} id={map.displayName}>
+                                        <motion.div initial={{opacity: 0, y: 20}} 
+                                        animate={{opacity: 1, y: 0, transition: {delay: 0.3, ...fadein} }}
+                                        className='info'>
                                         <h2 id='map-name'>{map.displayName}</h2>
                                         <h4>{map.coordinates}</h4>
+                                        </motion.div>
                                         <img id='map-splash' src={map.splash} alt={`${map.displayName}-map`} />
                                     </div>
                                 ))

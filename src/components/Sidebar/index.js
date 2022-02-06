@@ -4,8 +4,7 @@ import { motion } from 'framer-motion'
 import './sidebar.css'
 
 const Sidebar = ({ mapData, weaponsData }) => {
-
-    console.log(window.location.href)
+    
     let url = window.location.href
 
     return (

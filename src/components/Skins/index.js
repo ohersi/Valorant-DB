@@ -37,7 +37,7 @@ const Skins = ({ weapons, weaponLevels }) => {
                                 ))
                             }
                             {
-                                isClicked == index ?
+                                isClicked === index ?
                                     (
                                         weaponLevels(skins) !== null ?
                                             <video id='video' controls preload="none">

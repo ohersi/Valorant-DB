@@ -19,20 +19,12 @@ const Agents = ({ agentData, fetchVal }) => {
         setFullAgentCard(!fullAgentCard)
     }
 
-
     const toggleActive = (index) => {
         setAgentSelect({ ...agentSelect, activeObject: agentData[index] })
     }
-    const toggleStyles = (index) => {
-        if (agentSelect.activeObject === agentData[index]) {
-            return 'cards active'
-        } else {
-            return 'cards inactive'
-        }
-    }
 
     let agentPanel = agentSelect.activeObject
-    console.log(fullAgentCard)
+    // console.log(fullAgentCard)
 
     useEffect(() => {
         fetchVal();
@@ -61,8 +53,9 @@ const Agents = ({ agentData, fetchVal }) => {
                                             {
                                                 agentData.map((agents, index) => (
                                                     <motion.div
+                                                        whileHover={{  backgroundColor: "#FF4454" }}
                                                         key={agents.uuid}
-                                                        className={toggleStyles(index)}
+                                                        className='agent-cards'
                                                         onClick={() => { toggleActive(index); toggleFullAgent() }}
                                                         type='crossfade'
                                                         initial={{ opacity: 0 }}

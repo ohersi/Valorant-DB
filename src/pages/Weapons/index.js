@@ -60,7 +60,7 @@ const Weapons = ({ weaponsData, fetchVal }) => {
                                         alt={`${weapons.displayName}-weapon`}
                                     />
                                     {
-                                        isClicked == index ?
+                                        isClicked === index ?
                                             <Skins weapons={weapons} weaponLevels={weaponLevels} />
                                             : null
                                     }
