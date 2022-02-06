@@ -53,7 +53,7 @@ const Weapons = ({ weaponsData, fetchVal }) => {
                         {
                             weaponsData.map((weapons, index) => (
                                 <div className='weapons' key={weapons.uuid} id={weapons.displayName}>
-                                    <h2>{weapons.displayName}</h2>
+                                    <h2 className='weapon-name'>{weapons.displayName}</h2>
                                     <motion.img whileHover={{ scale: 1.07 }} onClick={() => toggleClick(index)}
                                         className='weapons-portrait'
                                         src={weapons.displayIcon}

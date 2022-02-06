@@ -1,12 +1,13 @@
 /* ------- Sidebar -------  */
 
-.sidebar-container {
+.maps-sidebar-container {
     grid-area: side;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(165, 42, 42);
   }
+  
   #maps-sidebar {
     position: fixed;
     height: 70vh;
@@ -16,9 +17,17 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    /* background-color: rgb(190, 60, 51); */
     color: white;
   }
+
+  .weapons-sidebar-container {
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+  }
+
   #weapons-sidebar {
     position: fixed;
     height: 85vh;
@@ -27,8 +36,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgb(190, 60, 51);
     color: white;
+  }
+
+  .home-btn {
+    text-align-last: center;
   }
 
   a {
@@ -36,10 +48,10 @@
   }
 
   @media (max-width: 768px) {
-    .sidebar-container {
+    .maps-sidebar-container, .weapons-sidebar-container {
       display: none;
     }
-    #maps-sidebar {
+    #maps-sidebar, #weapons-sidebar {
       display: none;
     }
   }

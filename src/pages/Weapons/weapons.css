@@ -3,25 +3,47 @@
 #main-weapons {
   display: grid;
   grid-template-areas: 'weapons side';
-  grid-template-columns: 95% 5%;
+  grid-template-columns: 90% 10%;
 }
 
 #weapons-container {
+  min-width: 100%;
+  padding-top: 2.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  gap: 2rem;
-  background-color: #161a25;
+  background-color: #000000;
   color: white;
   grid-area: weapons;
 }
 
-/* .weapons {
-  background-color: blue;
-} */
-
-.weapons-portrait {
-  width: 30rem;
+.weapon-name {
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
+.weapons {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.weapons-portrait {
+  max-width: 30rem;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  #main-weapons {
+    min-width: 100vw;
+  }
+  #weapons-container {
+    min-width: 100vw;
+  }
+}
+
+@media (max-width: 515px) {
+  .weapons-portrait {
+    max-width: 22rem;
+  }
+}

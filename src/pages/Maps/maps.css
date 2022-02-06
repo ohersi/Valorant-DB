@@ -29,7 +29,7 @@
 }
 
 #map-splash {
-  max-width: 95vw;
+  max-width: 88vw;
 }
 
 @media (max-width: 768px) {
@@ -41,5 +41,9 @@
   }
   #main-container {
     padding-left: 0%;
+  }
+  
+  #map-splash {
+    max-width: 95vw;
   }
 }
