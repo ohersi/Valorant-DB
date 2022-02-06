@@ -22,17 +22,19 @@
     font-size: clamp(0.5rem, 0.375rem + 0.625vw, 1rem);
     grid-area: agent;
 }
+
+#agent-name {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
   
 #agent-renders {
     position: relative;
     max-height: 65vh;
     width: auto;
     z-index: 10;
-  }
-
-  .info {
-      z-index: 2;
-  }
+}
 
 #agent-background {
     position: absolute;
@@ -40,3 +42,8 @@
     z-index: 2;
     opacity: 50%;
 }
+
+.info {
+      z-index: 2;
+  }
+

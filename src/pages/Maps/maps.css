@@ -3,10 +3,9 @@
 #main-map {
   display: grid;
   grid-template-areas: 'maps side';
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 90% 10%;
 }
 #map-container {
-  background-color: tomato;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -14,7 +13,33 @@
   text-align: center;
   gap: 2rem;
   grid-area: maps;
+  background-color: rgb(165, 42, 42);
+  color: white;
+  padding-left: 1%;
 }
+
+.maps {
+  text-align: start;
+}
+
+#map-name {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 1.6939rem + 1.3061vw, 3rem);
+}
+
 #map-splash {
-  width: 70vw;
+  max-width: 95vw;
+}
+
+@media (max-width: 768px) {
+  
+  #main-map {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+  }
+  #main-container {
+    padding-left: 0%;
+  }
 }

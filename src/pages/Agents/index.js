@@ -50,6 +50,7 @@ const Agents = ({ agentData, fetchVal }) => {
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                         <AnimatePresence initial={false}>
                             <div id="main-agent">
+                                {/* <h1 id='header'>AGENTS</h1> */}
                                 {
                                     fullAgentCard && agentSelect.activeObject !== null ?
                                         <Panel agentPanel={agentPanel}

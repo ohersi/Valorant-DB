@@ -14,7 +14,7 @@ const Panel = ({ agentPanel, toggleFullAgent }) => {
                     //agentPanel is null until an agent is clicked, ternary to prevent page from rendering empty prop
                     agentPanel == null ? null :
                         <motion.div className='panel' type="crossfade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}>
-                            <h2>{agentPanel.displayName}</h2>
+                            <h2 id='agent-name'>{agentPanel.displayName}</h2>
                             <motion.img id='agent-renders'
                                 onHoverStart={() => setIsHovering(true)}
                                 onHoverEnd={() => setIsHovering(false)}

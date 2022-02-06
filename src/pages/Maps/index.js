@@ -24,8 +24,8 @@ const Maps = ({ mapData, fetchVal }) => {
                         <div id="map-container">
                             {
                                 mapData.map(map => (
-                                    <div key={map.uuid} id={map.displayName}>
-                                        <h2>{map.displayName}</h2>
+                                    <div className='maps' key={map.uuid} id={map.displayName}>
+                                        <h2 id='map-name'>{map.displayName}</h2>
                                         <h4>{map.coordinates}</h4>
                                         <img id='map-splash' src={map.splash} alt={`${map.displayName}-map`} />
                                     </div>

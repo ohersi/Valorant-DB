@@ -4,13 +4,21 @@
 body {
     background-color: rgb(16, 24, 35);
 }
+
+#header {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+
 #main-agent {
-    background-color: rgb(16, 24, 35);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-width: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(16, 24, 35);
 }
 
 #agents-container {
