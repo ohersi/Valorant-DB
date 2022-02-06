@@ -32,7 +32,6 @@ const Sidebar = ({ mapData, weaponsData }) => {
                     }
                 </div>
             }
-
         </div>
     );
 }

@@ -16,7 +16,7 @@
 .shadow {
     position: absolute;
     inset: 0;
-    background-color: crimson;
+    background-color: rgb(251, 68, 84);
     z-index: -1;
 }
 

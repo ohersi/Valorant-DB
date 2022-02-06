@@ -48,30 +48,29 @@ const Weapons = ({ weaponsData, fetchVal }) => {
     return (
         <> {
             loading ? <Loader /> :
-            <motion.div id='main-weapons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                <div id="weapons-container">
-                    {
-                        weaponsData.map((weapons, index) => (
-                            <div className='weapons' key={weapons.uuid} id={weapons.displayName}>
-                                <h2>{weapons.displayName}</h2>
-                                <img onClick={() => toggleClick(index)}
-                                    className='weapons-portrait'
-                                    src={weapons.displayIcon}
-                                    alt={`${weapons.displayName}-weapon`}
-                                />
-                                {
-                                    isClicked == index ?
-                                        <Skins weapons={weapons} weaponLevels={weaponLevels} />
-                                        : null
-                                }
-                            </div>
-                        ))
-                    }
-                </div>
-                <Sidebar weaponsData={weaponsData}/>
-            </motion.div>
+                <motion.div id='main-weapons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <div id="weapons-container">
+                        {
+                            weaponsData.map((weapons, index) => (
+                                <div className='weapons' key={weapons.uuid} id={weapons.displayName}>
+                                    <h2>{weapons.displayName}</h2>
+                                    <motion.img whileHover={{ scale: 1.07 }} onClick={() => toggleClick(index)}
+                                        className='weapons-portrait'
+                                        src={weapons.displayIcon}
+                                        alt={`${weapons.displayName}-weapon`}
+                                    />
+                                    {
+                                        isClicked == index ?
+                                            <Skins weapons={weapons} weaponLevels={weaponLevels} />
+                                            : null
+                                    }
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <Sidebar weaponsData={weaponsData} />
+                </motion.div>
         }
-            
         </>
     );
 }

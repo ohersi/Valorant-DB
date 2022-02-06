@@ -1,8 +1,11 @@
+/* ------- Home -------  */
 
 .home-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: rgb(220, 20, 60);
+    min-height: 100vh;
+    background-color: rgb(251, 68, 84);
+     /* 248, 69, 85 */
+    /* 16, 24, 35 */
 }

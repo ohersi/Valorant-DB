@@ -83,7 +83,6 @@ const Agents = ({ agentData, fetchVal }) => {
 
                     </motion.div>
             }
-
         </>
     );
 }

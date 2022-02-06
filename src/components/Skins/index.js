@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion'
 // CSS 
 import './skins.css'
 
@@ -19,7 +20,17 @@ const Skins = ({ weapons, weaponLevels }) => {
                             <h4>{skins.displayName}</h4>
                             {
                                 skins.chromas.map(chroma => (
-                                    <img key={chroma.uuid} onClick={() => toggleClick(index)}
+                                    <motion.img whileHover={skins.levels.length > 1 ? {
+                                        scale: 1.07,
+                                        transition: {
+                                            duration: 0.5,
+                                            repeat: Infinity,
+                                            repeatType: "reverse"
+                                        }
+                                    }
+                                        : null
+                                    }
+                                        key={chroma.uuid} onClick={() => toggleClick(index)}
                                         className='chroma' src={chroma.fullRender}
                                         alt={`${chroma.displayName} chroma`}
                                     />

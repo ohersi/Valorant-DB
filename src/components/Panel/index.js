@@ -34,7 +34,6 @@ const Panel = ({ agentPanel, toggleFullAgent }) => {
                         </motion.div>
                 }
             </motion.div>
-
         </>
     );
 }
