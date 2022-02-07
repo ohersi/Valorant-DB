@@ -32,6 +32,7 @@ const App = () => {
     url: 'https://api.pandascore.co/valorant/matches',
     params: { sort: 'begin_at', page: '1', per_page: '50' },
     headers: {
+      "Access-Control-Allow-Origin": "*",
       Accept: 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_PANDASCORE_API_KEY}`
     }
