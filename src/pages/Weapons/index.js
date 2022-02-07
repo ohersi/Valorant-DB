@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 // Components
 import Skins from '../../components/Skins';
 import Sidebar from '../../components/Sidebar';
+import Loader from '../../components/Loader';
 // CSS
 import './weapons.css'
-import Loader from '../../components/Loader';
 
 const Weapons = ({ weaponsData, fetchVal }) => {
 

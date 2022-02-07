@@ -13,8 +13,8 @@
   text-align: center;
   gap: 2rem;
   grid-area: maps;
-  background-color: rgb(165, 42, 42);
-  color: white;
+  background-color: #fedcdb;
+  color: #fb4454;
   padding-left: 1%;
 }
 

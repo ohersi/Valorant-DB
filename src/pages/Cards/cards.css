@@ -1,16 +1,15 @@
 /* ------- Cards -------  */
 
 #main-div {
-    background-color: #FF8189;
-    height: 100vh;
     display: grid;
     grid-template-areas: 
     "cards big";
     grid-template-columns: 65% 35%;
+    background-color: #EA5D4D;
+    height: 100vh;
 }
 
 #card-container {
-    /* background-color: rgb(184, 106, 106); */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,13 +21,23 @@
     padding: 1rem;
     overflow: scroll;
     overflow-x: hidden;
+    color: #f0bbb4;
 }
 
 div#card-container::-webkit-scrollbar-track {
-    background: rgb(89, 96, 110);
+    background: #b1473bbd;
     border-radius: 100vw;
 }
-  
+
+div#card-container::-webkit-scrollbar-thumb {
+    background: #b1473bbd;
+    border-radius: 100vw;
+}
+
+div#card-container::-webkit-scrollbar-thumb:hover {
+      background: #86352cb0;
+}
+
 #card-art {
     width: 10rem;
     cursor: pointer;
@@ -42,6 +51,7 @@ div#card-container::-webkit-scrollbar-track {
     align-items: center;
     text-align: center;
     background-color: #EA5D4D;
+    color: #f0bbb4;
     grid-area: big;
 }
 

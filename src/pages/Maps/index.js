@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Loader from '../../components/Loader';
 import { motion } from 'framer-motion'
 // Components
 import Sidebar from '../../components/Sidebar';
+import Loader from '../../components/Loader';
 // CSS
 import './maps.css'
 
 const Maps = ({ mapData, fetchVal }) => {
 
     const [loading, setLoading] = useState(true)
-    const fadein = { duration: 0.4, ease: [.49,.09,.55,1.03] };
+    
+    const fadein = { 
+        duration: 0.4, 
+        ease: [.49,.09,.55,1.03] 
+    };
 
     useEffect(() => {
         fetchVal();

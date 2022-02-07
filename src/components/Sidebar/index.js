@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll'
 import { motion } from 'framer-motion'
+// CSS
 import './sidebar.css'
 
 const Sidebar = ({ mapData, weaponsData }) => {

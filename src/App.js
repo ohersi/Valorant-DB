@@ -87,7 +87,7 @@ const App = () => {
       <AnimateSharedLayout>
         <div id='main'>
           <Nav />
-          <AnimatePresence exitBeforeEnter initial={false}>
+          <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />

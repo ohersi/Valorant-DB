@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(165, 42, 42);
+    background-color: #fedcdb;
   }
   
   #maps-sidebar {
@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    color: white;
+    color: #fb4454;
   }
 
   .weapons-sidebar-container {
