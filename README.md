@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+
+# Valorant Database
+
+A website for viewing Valorant game assets, items, and esports matches.  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+https://valorant-db.netlify.app 
 
-### `npm start`
+Issue with Esports page, CORS error:
+        
+       Access to XMLHttpRequest at 
+       'https://api.pandascore.co/valorant/matches?sort=begin_at&page=1&per_page=50' 
+       from origin 'https://valorant-db.netlify.app' 
+       has been blocked by CORS policy: Response to preflight request doesn't pass 
+       access control check: No 'Access-Control-Allow-Origin' header 
+       is present on the requested resource.)
 
+
+## Features
+- Collection of Valorant assets and items such as agents, weapons and their skins, maps, and player cards.
+- Hoverable items reveal more when clicked.
+- Esports match information with tournament and team names, date scheduled, and links to watch on Twitch.
+
+
+## Documentation
+
+API's used for data:
+- [Valorant-API](https://dash.valorant-api.com/)
+- [PandaScore](https://pandascore.co/stats)
+
+NPM Packages used:
+- [react](https://www.npmjs.com/package/react)
+- [axios](https://www.npmjs.com/package/axios)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [framer-motion](https://www.npmjs.com/package/framer-motion)
+- [react-scroll](https://www.npmjs.com/package/react-scroll)
+
+
+## Run Locally
+
+Clone or download repository
+
+```bash
+  git clone https://github.com/ohersi/Valorant-DB.git
+```
+
+Go to the app directory
+
+```bash
+  cd valorant-db
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Lessons Learned
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Working with APIs
+- Adding custom data to API json data
+- Creating pages that link to one another using React Router
+- Animating using Framer Motion
+- Better understanding of CSS styling and media query for responsive page
+## Acknowledgements
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - [Framer Motion](https://www.framer.com/motion/)
+ - [Valorant](https://playvalorant.com/en-us/)
+ 
