@@ -33,7 +33,7 @@ const App = () => {
     params: { sort: 'begin_at', page: '1', per_page: '50' },
     headers: {
       Accept: 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_PANDASCORE_API_KEY}`
+      Authorization: 'Bearer Jzg-EIex6QWCddG2fTAImzjuwNjBjag3-Z5ctwmRRAdaKyAbmrw'
     }
   };
 
