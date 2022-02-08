@@ -7,9 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Demo
 
-https://valorant-db.netlify.app 
+View the application at [Valorant-DB](https://valorant-db.netlify.app).
 
-Issue with Esports page, CORS error:
+&#10071; Issue with Esports page, CORS error:
         
        Access to XMLHttpRequest at 
        'https://api.pandascore.co/valorant/matches?sort=begin_at&page=1&per_page=50' 
