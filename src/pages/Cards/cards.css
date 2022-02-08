@@ -10,6 +10,7 @@
 }
 
 #card-container {
+    /* min-height: 100%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -57,7 +58,7 @@ div#card-container::-webkit-scrollbar-thumb:hover {
 
 #lg-card {
     width: auto;
-    height: 40rem;
+    max-height: 40rem;
 }
 
 #empty {
@@ -74,6 +75,7 @@ div#card-container::-webkit-scrollbar-thumb:hover {
 
     #main-div{
         display: inline-block;
+        height: auto;
     }
     #lg-card-panel {
         display: none;
@@ -85,5 +87,21 @@ div#card-container::-webkit-scrollbar-thumb:hover {
     
     #empty {
        display: none;
+    }
+
+    div#card-container::-webkit-scrollbar-track {
+        display: none;
+    }
+}
+
+@media (max-width: 1260px) {
+    #lg-card {
+        max-height: 36rem;
+    }
+}
+
+@media (max-width: 1035px) {
+    #lg-card {
+        max-height: 33rem;
     }
 }
