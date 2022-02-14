@@ -9,27 +9,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 View the application at [Valorant-DB](https://valorant-db.netlify.app).
 
-&#10071; Issue with Esports page, CORS error:
-        
-       Access to XMLHttpRequest at 
-       'https://api.pandascore.co/valorant/matches?sort=begin_at&page=1&per_page=50' 
-       from origin 'https://valorant-db.netlify.app' 
-       has been blocked by CORS policy: Response to preflight request doesn't pass 
-       access control check: No 'Access-Control-Allow-Origin' header 
-       is present on the requested resource.)
-
 
 ## Features
 - Collection of Valorant assets and items such as agents, weapons and their skins, maps, and player cards.
 - Hoverable items reveal more when clicked.
-- Esports match information with tournament and team names, date scheduled, and links to watch on Twitch.
+- Esports match information; live scores, upcoming matches and previous results.
 
 
 ## Documentation
 
 API's used for data:
 - [Valorant-API](https://dash.valorant-api.com/)
-- [PandaScore](https://pandascore.co/stats)
+- [Built an API using Node/Express](https://github.com/ohersi/rib-scrpr-api) | [rib-scrpr](https://rib-scrpr-api.herokuapp.com/matches)
 
 NPM Packages used:
 - [react](https://www.npmjs.com/package/react)
@@ -70,13 +61,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Lessons Learned
 
-- Working with APIs
+- Working with external APIs
+- Creating an API
 - Adding custom data to API json data
 - Creating pages that link to one another using React Router
 - Animating using Framer Motion
 - Better understanding of CSS styling and media query for responsive page
+
 ## Acknowledgements
 
  - [Framer Motion](https://www.framer.com/motion/)
  - [Valorant](https://playvalorant.com/en-us/)
+ 
+
  
