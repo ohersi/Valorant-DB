@@ -14,23 +14,124 @@ const Esports = ({ matchData, fetchMatches }) => {
         }, 1500);
     }, []);
 
-    // console.log(matchData)
+    let live = [];
+    let upcoming = [];
+    let completed = [];
+
+    matchData.map(matches => {
+        if (matches.live == true) {
+            live.push(matches)
+        }
+        else if (matches.live == false && matches.completed == false) {
+            upcoming.push(matches)
+        }
+        else if (matches.completed == true) {
+            completed.push(matches)
+        }
+    });
+
+    console.log(completed)
     return (
         <>
             {
                 loading ? <Loader /> :
                     <div id="match-container">
-                        {
-                            matchData.map((matches) => (
-                                <div className='match-cards' key={matches.id}>
-                                    <img src={matches.league.image_url} alt="" style={{ width: '10rem' }} />
-                                    <h3>{matches.league.name}</h3>
-                                    <h4>{matches.name}</h4>
-                                    <p>{matches.begin_at}</p>
-                                    <a id='twitch-link' href={matches.official_stream_url}>Watch on Twitch</a>
-                                </div>
-                            ))
-                        }
+                        <h1 className='headers'>ONGOING</h1>
+                        <div id='live-container'>
+                            {
+                                live.map(games => (
+                                    <div className="live-cards match-cards" key={games.id}>
+                                        <p>LIVE</p>
+                                        <h3>{games.eventName}</h3>
+                                        <div className="teams-container">
+                                            <div id="team1">
+                                                <img id='team-logo' src={games.team1.logoUrl} alt={`${games.team1.name}-logo`} />
+                                                <h4>{games.team1.name}</h4>
+                                            </div>
+                                            <div id='vs'>
+                                                VS
+                                            </div>
+                                            <div id="team2">
+                                                <img id='team-logo' src={games.team2.logoUrl} alt={`${games.team2.name}-logo`} />
+                                                <h4>{games.team2.name}</h4>
+                                            </div>
+                                        </div>
+                                        <div id="score-container">
+                                            {
+                                                games.matches.map((map, index) => (
+                                                    <div className='scores' key={map.id}>
+                                                        <p>MAP {index + 1}</p>
+                                                        <p> {games.team1.name}: <span>{map.team1Score}</span></p>
+                                                        <p>{games.team2.name}: <span>{map.team2Score}</span></p>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <h1 className='headers'>UPCOMING MATCHES</h1>
+                        <div id="upcoming-container">
+                            {
+                                upcoming.map(games => (
+                                    <div div className="upcoming-cards match-cards" key={games.id}>
+                                        <p>UPCOMING</p>
+                                        <h4>{games.startDate}</h4>
+                                        <h3>{games.eventName}</h3>
+                                        <div className="teams-container">
+                                            <div id="team1">
+                                                <img id='team-logo' src={games.team1.logoUrl} alt={`${games.team1.name}-logo`} />
+                                                <h5>{games.team1.name}</h5>
+                                            </div>
+                                            <div id='vs'>
+                                                VS
+                                            </div>
+                                            <div id="team2">
+                                                <img id='team-logo' src={games.team2.logoUrl} alt={`${games.team2.name}-logo`} />
+                                                <h5>{games.team2.name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <h1 className='headers'>RECENT RESULTS</h1>
+                        <div id="completed-container">
+                            {
+                                completed.map(games => (
+                                    <div div className="completed-cards match-cards" key={games.id}>
+                                        <p>COMPLETED</p>
+                                        <h4>{games.startDate}</h4>
+                                        <h3>{games.eventName}</h3>
+                                        <div className="teams-container">
+                                            <div id="team1">
+                                                <img id='team-logo' src={games.team1.logoUrl} alt={`${games.team1.name}-logo`} />
+                                                <h4>{games.team1.name}</h4>
+                                            </div>
+                                            <div id='vs'>
+                                                VS
+                                            </div>
+                                            <div id="team2">
+                                                <img id='team-logo' src={games.team2.logoUrl} alt={`${games.team2.name}-logo`} />
+                                                <h4>{games.team2.name}</h4>
+                                            </div>
+                                        </div>
+                                        <div id="score-container">
+                                            {
+                                                games.matches.map((map, index) => (
+                                                    <div className='scores' key={map.id}>
+                                                        <p>MAP {index + 1}</p>
+                                                        <p> {games.team1.name}: <span>{map.team1Score}</span></p>
+                                                        <p>{games.team2.name}: <span>{map.team2Score}</span></p>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
             }
         </>

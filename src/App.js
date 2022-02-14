@@ -26,26 +26,16 @@ const App = () => {
 
   const location = useLocation();
 
-  // ------------PandaScore-API -------------------- //
-  const options = {
-    method: 'GET',
-    url: 'https://api.pandascore.co/valorant/matches',
-    params: { sort: 'begin_at', page: '1', per_page: '50' },
-    headers: {
-      Accept: 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_PANDASCORE_API_KEY}`
-    }
-  };
-
   const fetchMatches = async () => {
     try {
-      const response = await axios.request(options)
+      const response = await axios.get('https://rib-scrpr-api.herokuapp.com/matches')
       setMatchData(response.data);
     }
     catch (error) {
       console.error(error)
     }
   }
+  
   // ------------Valorant-API -------------------- //
   const fetchVal = async () => {
     try {
