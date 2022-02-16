@@ -82,8 +82,7 @@ span {
 
 #upcoming-container {
     display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
+    flex-flow: row-reverse wrap-reverse;
     justify-content: center;
     gap: 2rem;
 }

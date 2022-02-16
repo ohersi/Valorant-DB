@@ -19,18 +19,18 @@ const Esports = ({ matchData, fetchMatches }) => {
     let completed = [];
 
     matchData.map(matches => {
-        if (matches.live == true) {
-            live.push(matches)
+        if (matches.live === true) {
+            return live.push(matches);
         }
-        else if (matches.live == false && matches.completed == false) {
-            upcoming.push(matches)
+        else if (matches.live === false && matches.completed === false) {
+            return upcoming.push(matches);
         }
-        else if (matches.completed == true) {
-            completed.push(matches)
+        else if (matches.completed === true) {
+            return completed.push(matches);
         }
+        return matchData;
     });
 
-    console.log(completed)
     return (
         <>
             {
