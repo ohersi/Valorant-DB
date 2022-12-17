@@ -18,8 +18,8 @@ const Panel = ({ agentPanel, toggleFullAgent }) => {
                             <motion.img id='agent-renders'
                                 onHoverStart={() => setIsHovering(true)}
                                 onHoverEnd={() => setIsHovering(false)}
-                                src={agentPanel.largeImages?.img ?
-                                    agentPanel.largeImages?.img
+                                src={agentPanel.fullPortrait ?
+                                    agentPanel.fullPortrait
                                     : agentPanel.displayIcon}
                                 alt={`${agentPanel.displayName}-agent`} />
                             {
