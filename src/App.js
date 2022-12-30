@@ -28,7 +28,7 @@ const App = () => {
 
   const fetchMatches = async () => {
     try {
-      const response = await axios.get('https://rib-scrpr-api.herokuapp.com/matches')
+      const response = await axios.get('https://rib-scrpr-api.up.railway.app/matches')
       setMatchData(response.data);
     }
     catch (error) {
