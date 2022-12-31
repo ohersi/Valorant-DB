@@ -6,7 +6,7 @@ import Loader from '../../components/Loader';
 // CSS
 import './maps.css'
 
-const Maps = ({ mapData, fetchVal }) => {
+const Maps = ({ mapData, fetchMaps }) => {
 
     const [loading, setLoading] = useState(true)
     
@@ -16,7 +16,7 @@ const Maps = ({ mapData, fetchVal }) => {
     };
 
     useEffect(() => {
-        fetchVal();
+        fetchMaps();
         setTimeout(() => {
             setLoading(false)
         }, 1000);

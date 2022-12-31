@@ -6,7 +6,7 @@ import Loader from '../../components/Loader';
 // CSS
 import './agents.css'
 
-const Agents = ({ agentData, fetchVal }) => {
+const Agents = ({ agentData, fetchAgents }) => {
 
     const [agentSelect, setAgentSelect] = useState({
         activeObject: null
@@ -22,12 +22,11 @@ const Agents = ({ agentData, fetchVal }) => {
     const toggleActive = (index) => {
         setAgentSelect({ ...agentSelect, activeObject: agentData[index] })
     }
-
     let agentPanel = agentSelect.activeObject
     // console.log(fullAgentCard)
 
     useEffect(() => {
-        fetchVal();
+        fetchAgents();
         setTimeout(() => {
             setLoading(false)
         }, 1000);

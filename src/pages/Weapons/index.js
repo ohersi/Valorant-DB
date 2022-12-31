@@ -7,7 +7,7 @@ import Loader from '../../components/Loader';
 // CSS
 import './weapons.css'
 
-const Weapons = ({ weaponsData, fetchVal }) => {
+const Weapons = ({ weaponsData, fetchWeapons }) => {
 
     const [isClicked, setIsClicked] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -17,7 +17,7 @@ const Weapons = ({ weaponsData, fetchVal }) => {
     }
 
     useEffect(() => {
-        fetchVal();
+        fetchWeapons();
         setTimeout(() => {
             setLoading(false)
         }, 1000);

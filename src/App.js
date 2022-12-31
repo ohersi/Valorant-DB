@@ -26,6 +26,7 @@ const App = () => {
 
   const location = useLocation();
 
+  // ------------Rib-Scrpr-API -------------------- //
   const fetchMatches = async () => {
     try {
       const response = await axios.get('https://rib-scrpr-api.up.railway.app/matches')
@@ -35,21 +36,13 @@ const App = () => {
       console.error(error)
     }
   }
-  
-  // ------------Valorant-API -------------------- //
-  const fetchVal = async () => {
-    try {
-      const response = await axios.all([
-        axios.get('https://valorant-api.com/v1/agents'),
-        axios.get('https://valorant-api.com/v1/weapons'),
-        axios.get('https://valorant-api.com/v1/maps'),
-        axios.get('https://valorant-api.com/v1/playercards')
-      ]);
 
-      let agents = response[0].data.data
-      let weapons = response[1].data.data
-      let maps = response[2].data.data
-      let cards = response[3].data.data
+  // ------------Valorant-API -------------------- //
+
+  const fetchAgents = async () => {
+    try {
+      const response = await axios.get('https://valorant-api.com/v1/agents');
+      let agents = response.data.data;
 
       // removing duplicate Sova object
       let filteredArr = ''
@@ -63,15 +56,45 @@ const App = () => {
       ))
 
       setAgentData(newAgentArr)
-      setWeaponsData(weapons)
-      setMapData(maps)
-      setCardData(cards)
-    }
-    catch (error) {
+
+    } catch (error) {
       console.error(error)
     }
   }
-  
+
+  const fetchWeapons = async () => {
+    try {
+      const response = await axios.get('https://valorant-api.com/v1/weapons');
+      let weapons = response.data.data;
+      setWeaponsData(weapons);
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const fetchMaps = async () => {
+    try {
+      const response = await axios.get('https://valorant-api.com/v1/maps');
+      let maps = response.data.data;
+      setMapData(maps);
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const fetchCards = async () => {
+    try {
+      const response = await axios.get('https://valorant-api.com/v1/playercards');
+      let cards = response.data.data;
+      setCardData(cards);
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <>
       <AnimateSharedLayout>
@@ -79,15 +102,15 @@ const App = () => {
           <Nav />
           <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
-            <Route path='/' element={<Home />} />
-            <Route path='agents' element={<Agents agentData={agentData} fetchVal={fetchVal} />} />
-            <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchVal={fetchVal} />} />
-            <Route path='maps' element={<Maps mapData={mapData} fetchVal={fetchVal} />} />
-            <Route path='cards' element={<Cards cardData={cardData} fetchVal={fetchVal} />} />
-            <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
-          </Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='agents' element={<Agents agentData={agentData} fetchAgents={fetchAgents} />} />
+              <Route path='weapons' element={<Weapons weaponsData={weaponsData} fetchWeapons={fetchWeapons} />} />
+              <Route path='maps' element={<Maps mapData={mapData} fetchMaps={fetchMaps} />} />
+              <Route path='cards' element={<Cards cardData={cardData} fetchCards={fetchCards} />} />
+              <Route path='esports' element={<Esports matchData={matchData} fetchMatches={fetchMatches} />} />
+            </Routes>
           </AnimatePresence>
-          
+
         </div>
       </AnimateSharedLayout>
 

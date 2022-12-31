@@ -5,7 +5,7 @@ import Loader from '../../components/Loader';
 // CSS
 import './cards.css'
 
-const Cards = ({ cardData, fetchVal }) => {
+const Cards = ({ cardData, fetchCards }) => {
 
     const [cardSelect, setCardSelect] = useState({ activeObject: null })
     const [loading, setLoading] = useState(true)
@@ -15,7 +15,7 @@ const Cards = ({ cardData, fetchVal }) => {
     }
 
     useEffect(() => {
-        fetchVal();
+        fetchCards();
         setTimeout(() => {
             setLoading(false)
         }, 1000);
