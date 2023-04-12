@@ -106,15 +106,15 @@ const Esports = ({ matchData, fetchMatches }) => {
                                         <h3>{games.eventName}</h3>
                                         <div className="teams-container">
                                             <div id="team1">
-                                                <img id='team-logo' src={games.team1.logoUrl} alt={`${games.team1.name}-logo`} />
-                                                <h4>{games.team1.name}</h4>
+                                                <img id='team-logo' src={games.team1?.logoUrl} alt={`${games.team1?.name}-logo`} />
+                                                <h4>{games.team1?.name}</h4>
                                             </div>
                                             <div id='vs'>
                                                 VS
                                             </div>
                                             <div id="team2">
-                                                <img id='team-logo' src={games.team2.logoUrl} alt={`${games.team2.name}-logo`} />
-                                                <h4>{games.team2.name}</h4>
+                                                <img id='team-logo' src={games.team2?.logoUrl} alt={`${games.team2?.name}-logo`} />
+                                                <h4>{games.team2?.name}</h4>
                                             </div>
                                         </div>
                                         <div id="score-container">
@@ -122,8 +122,8 @@ const Esports = ({ matchData, fetchMatches }) => {
                                                 games.matches.map((map, index) => (
                                                     <div className='scores' key={map.id}>
                                                         <p>MAP {index + 1}</p>
-                                                        <p> {games.team1.name}: <span>{map.team1Score}</span></p>
-                                                        <p>{games.team2.name}: <span>{map.team2Score}</span></p>
+                                                        <p> {games.team1?.name}: <span>{map.team1Score}</span></p>
+                                                        <p>{games.team2?.name}: <span>{map.team2Score}</span></p>
                                                     </div>
                                                 ))
                                             }
