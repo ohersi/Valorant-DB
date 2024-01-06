@@ -29,7 +29,7 @@ const App = () => {
   // ------------Rib-Scrpr-API -------------------- //
   const fetchMatches = async () => {
     try {
-      const response = await axios.get('https://rib-scrpr-api.up.railway.app/matches')
+      const response = await axios.get('https://rib-scrpr-api.onrender.com/matches')
       setMatchData(response.data);
     }
     catch (error) {
