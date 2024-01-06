@@ -20,7 +20,7 @@ View the application at [Valorant-DB](https://valorant-db.netlify.app).
 
 API's used for data:
 - [Valorant-API](https://dash.valorant-api.com/)
-- [Built an API using Node/Express](https://github.com/ohersi/rib-scrpr-api) | [rib-scrpr](https://rib-scrpr-api.herokuapp.com/matches)
+- [Built an API using Node/Express](https://github.com/ohersi/rib-scrpr-api) | [rib-scrpr](https://rib-scrpr-api.onrender.com/matches)
 
 NPM Packages used:
 - [react](https://www.npmjs.com/package/react)
